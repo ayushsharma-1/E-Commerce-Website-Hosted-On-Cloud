@@ -1,70 +1,97 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# E-Commerce Website Hosted on Cloud 🌐
 
-## Available Scripts
+A modern and scalable **e-commerce platform** built using **React.js** for the frontend and **Node.js/Express.js** for the backend. This application is fully hosted on **AWS Cloud**, ensuring high availability, security, and performance.
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **User-Friendly UI**: Built with React.js for a smooth shopping experience.
+- **Cloud Hosting**: Deployed using AWS services like **S3, Lambda, API Gateway**.
+- **Secure Transactions**: Integrated payment gateway for safe purchases.
+- **Scalable Backend**: Node.js with Express.js and **MongoDB/DynamoDB**.
+- **Product Management**: Add, update, and delete products dynamically.
+- **Authentication & Authorization**: Secure user login using JWT.
+- **Responsive Design**: Works on desktop, tablet, and mobile.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **Frontend**
+- **React.js**
+- **Redux (for state management)**
+- **TailwindCSS / Styled Components**
 
-### `npm test`
+### **Backend**
+- **Node.js & Express.js**
+- **MongoDB / DynamoDB (for data storage)**
+- **JWT Authentication**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Cloud Services (AWS)**
+- **AWS S3** – For storing images and static assets
+- **AWS Lambda** – Serverless backend functions
+- **AWS API Gateway** – Routing API calls securely
+- **AWS DynamoDB / MongoDB** – Database for storing product and user data
 
-### `npm run build`
+## 📌 Installation Guide
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **1️⃣ Clone the Repository**
+```sh
+git clone https://github.com/ayushsharma-1/E-Commerce-Website-Hosted-On-Cloud.git
+cd E-Commerce-Website-Hosted-On-Cloud
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **2️⃣ Install Dependencies**
+```sh
+# Install frontend dependencies
+cd frontend
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install backend dependencies
+cd ../backend
+npm install
+```
 
-### `npm run eject`
+### **3️⃣ Set Up Environment Variables**
+Create a `.env` file in the **backend** directory and add:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+S3_BUCKET_NAME=your_s3_bucket_name
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **4️⃣ Run the Project**
+```sh
+# Run backend server
+cd backend
+npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Run frontend
+cd frontend
+npm start
+```
+The app will be available at **http://localhost:3000**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📦 Deployment on AWS
 
-## Learn More
+### **Frontend Hosting**
+- Deploy **React.js** app using **AWS Amplify** or **S3 + CloudFront**.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Backend Deployment**
+- Deploy **Node.js/Express.js** with **AWS Lambda + API Gateway**.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **Database**
+- Use **AWS DynamoDB** (fully managed NoSQL) or **MongoDB Atlas**.
 
-### Code Splitting
+## 💡 Future Enhancements
+- **AI-based product recommendations**
+- **Real-time order tracking**
+- **Multi-vendor marketplace**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 👨‍💻 Contributors
+- **Ayush Sharma** (Your Name Here)
 
-### Analyzing the Bundle Size
+## 📜 License
+This project is licensed under the **MIT License**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

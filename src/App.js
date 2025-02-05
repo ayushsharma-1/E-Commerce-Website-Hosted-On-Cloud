@@ -1,5 +1,3 @@
-// src/App.js
-
 import { useState, useEffect } from "react";
 import "./App.css";
 import Category from "./components/Categories";
@@ -52,7 +50,6 @@ function App() {
           </ul>
         </nav>
         <article>
-          <h2>Items</h2>
           {loading && <p>Loading...</p>}
           {error && <p style={{ color: "red" }}>Error: {error}</p>}
           <Products categoryId={activeCategoryId} />

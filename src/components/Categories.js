@@ -1,5 +1,3 @@
-import React from "react";
-
 const Categories = ({ id, title, onCategoryClick, isActive }) => {
   return (
     <li

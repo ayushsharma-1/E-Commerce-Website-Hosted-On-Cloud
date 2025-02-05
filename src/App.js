@@ -1,24 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+
+import { useState, useEffect } from "react";
+import "./App.css";
+import Category from "./components/Categories";
+import { Products } from "./components/Products";
 
 function App() {
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [activeCategoryId, setActiveCategoryId] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/categories")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setCategories(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Fetch error:", err);
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  const onCategoryClick = (id) => {
+    setActiveCategoryId(id);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <header>My Store</header>
+      <section>
+        <nav>
+          <ul>
+            {categories.map((category) => (
+              <Category
+                key={category.id}
+                id={category.id}
+                title={category.title}
+                isActive={category.id === activeCategoryId}
+                onCategoryClick={onCategoryClick}
+              />
+            ))}
+          </ul>
+        </nav>
+        <article>
+          <h2>Items</h2>
+          {loading && <p>Loading...</p>}
+          {error && <p style={{ color: "red" }}>Error: {error}</p>}
+          <Products categoryId={activeCategoryId} />
+        </article>
+      </section>
+      <footer>@ayushsharma 2025</footer>
+    </>
   );
 }
 

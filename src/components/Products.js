@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useState, useContext } from "react";
+import { CartContext } from "../contexts/cartContext";
 const Base_URL = "http://localhost:3001/products";
 
 export const Products = ({ categoryId }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const { addProduct,cartItems } = useContext(CartContext);
   useEffect(() => {
     let url = Base_URL;
 
@@ -32,6 +32,12 @@ export const Products = ({ categoryId }) => {
       });
   }, [categoryId]);
 
+  const handleAddToCart = (product) => {
+    addProduct(product); // Add product to cart
+  };
+  const isProductInCart = (productId) => {
+    return cartItems.some((item) => item.id === productId);
+  };
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -68,7 +74,13 @@ export const Products = ({ categoryId }) => {
             <div className={product.stock > 0 ? "in-stock" : "out-of-stock"}>
               {product.stock > 0 ? "In Stock" : "No Stock"}
             </div>
-            <button className="btn">Buy Now</button>
+            <button className="btn1">Buy Now</button>
+            <button
+              className={`btn2 ${isProductInCart(product.id) ? "added" : ""}`} // Conditional styling for added button
+              onClick={() => handleAddToCart(product)}
+            >
+              {isProductInCart(product.id) ? "Added to Cart" : "Add to Cart"}
+            </button>
           </div>
         </div>
       ))}

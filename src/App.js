@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import { Link, useLocation } from "react-router-dom";
 import Category from "./components/Categories";
 import { Products } from "./components/Products";
+import { ShoppingCart, Home } from "@mui/icons-material"; 
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -31,10 +33,21 @@ function App() {
   const onCategoryClick = (id) => {
     setActiveCategoryId(id);
   };
-
+  const location = useLocation();
   return (
     <>
-      <header>My Store</header>
+       <nav className="navbar">
+      <Link to="/" className={`icon ${location.pathname === "/" ? "active" : ""}`}>
+        <Home />
+      </Link>
+
+      <header className="store-name">My Store</header>
+
+      <Link to="/checkout" className={`icon ${location.pathname === "/checkout" ? "active" : ""}`}>
+        <ShoppingCart />
+        </Link>
+    </nav>
+
       <section>
         <nav>
           <ul>
